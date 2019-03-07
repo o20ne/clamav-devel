@@ -82,7 +82,8 @@ static int onas_fan_scanfile(int fan_fd, const char *fname, struct fanotify_even
         if (onas_scan(fname, fmd->fd, &virname, tharg->engine, tharg->options, extinfo) == CL_VIRUS) {
             /* TODO : FIXME? virusaction forks. This could be extraordinarily problematic, lead to deadlocks, 
              * or at the very least lead to extreme memory consumption. Leaving disabled for now.*/ 
-            //virusaction(fname, virname, tharg->opts);
+            virusaction(fname, virname, tharg->opts);
+            
             res.response = FAN_DENY;
         }
     }
